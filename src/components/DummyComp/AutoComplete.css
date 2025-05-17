@@ -1,0 +1,23 @@
+.autocomplete-container-initial {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 252px;
+  transform: translate3d(-34px, 175px, 0px);
+  background: #ebfffc;
+  outline: solid 1px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.autocomplete-city-initial {
+  display: flex;
+  padding-left: 25px;
+  margin-top: 0px;
+  font-size: 18px;
+  color: #626262;
+}
+
+.autocomplete-city-initial:hover {
+  background-color: lightblue;
+}
