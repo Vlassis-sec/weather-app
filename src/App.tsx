@@ -28,9 +28,8 @@ const App = () => {
       <div className="app">
         <NavBar setOpenModal={setOpenModal} setFormType={setFormType} />
         <WeatherManager />
-        {/* {openModal && <Portal setOpenModal={setOpenModal} />} */}
         {openModal &&
-          <Modal>
+          <Modal setOpenModal={setOpenModal}>
             {formContent}
           </Modal>}
 

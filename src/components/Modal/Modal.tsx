@@ -1,18 +1,35 @@
-
+import { useEffect } from 'react'
 import './Modal.css'
 import { createPortal } from "react-dom"
 
 type ModalProps = {
-    // setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
     children: React.ReactElement | null
 }
 
-const Modal = ({ children }: ModalProps) => {
+const Modal = ({ setOpenModal, children }: ModalProps) => {
+
+
+    useEffect(() => {
+
+        const escapeClose = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setOpenModal(false)
+            }
+        }
+
+        document.addEventListener('keydown', escapeClose)
+
+        return () => {
+            document.removeEventListener('keydown', escapeClose)
+        }
+    }, [setOpenModal])
+
 
     return (
         createPortal(
-            <div className="modal-background">
-                <div className="modal-container">
+            <div className="modal-background" onClick={() => setOpenModal(false)}>
+                <div className="modal-container" onClick={(event) => { event.stopPropagation() }}>
                     {children}
                 </div>
             </div>,
@@ -24,24 +41,3 @@ const Modal = ({ children }: ModalProps) => {
 export default Modal
 
 
-// make a function for the event
-// useEffect(() => {
-//     document.addEventListener('keydown', (event) => {
-//         if (event.key === 'escape') {
-//             setOpenModal(false)
-//         }
-//     })
-
-//     return () => {
-//         document.removeEventListener('keydown', (event) => {
-//             if (event.keyCode === 27) {
-//                 setOpenModal(false)
-//             }
-//         })
-//     }
-// }, [setOpenModal])
-
-// const closeModal = (event) => {
-//     event.StopPropagation()
-//     setOpenModal(false)
-// }
