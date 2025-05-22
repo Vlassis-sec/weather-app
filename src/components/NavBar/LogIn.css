@@ -1,18 +1,75 @@
-/* form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-image: linear-gradient(180deg, aqua, #cfffcf);
-  border: solid 1px;
-  border-radius: 50px;
-  width: 20%;
-  height: 65%;
-  padding: 10px;
-} */
-
-/* .form {
+.loginForm {
+  padding: 60px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+  gap: 10px;
+}
+
+.header-logIn {
+  transform: translate(0px, -20px);
+}
+
+.formTitle {
+  font-size: 30px;
+}
+
+.form-logIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.emailInput {
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+}
+.passwordSection-login {
+  display: flex;
+  flex-direction: column;
+}
+.passwordInput {
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+}
+
+.forgot-password-link {
+  align-self: center;
+  transform: translate(-35px, 0px);
+}
+
+.remember-me {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  gap: 5px;
+  transform: translate(-59px, 0px);
+}
+
+.footer-logIn {
+  padding: 10px;
+  transform: translate(0px, 15px);
+}
+
+.logInButton {
+  padding: 5px 50px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: lightpink;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.logInButton:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 5px grey;
+}

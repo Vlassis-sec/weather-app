@@ -1,4 +1,4 @@
-
+import './SignUp.css'
 type SignUpProps = {
     setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -8,12 +8,21 @@ const SignUp = ({ setOpenModal }: SignUpProps) => {
         setOpenModal(false)
     }
     return (
-        <form action="">
-            <input type="text" placeholder='Email' />
-            <input type="text" placeholder='Password' />
-            <input type="text" placeholder='Confirm Password' />
-            <button onClick={exitModal}>Submit</button>
-        </form>
+        <div className="signUpForm">
+            <div className="header-signUp">
+                <div className="form-title-signUp">
+                    Sign Up
+                </div>
+            </div>
+            <form action="" className="form-signUp">
+                <input type="text" placeholder="Email" className="emailInput-signUp" />
+                <input type="password" placeholder="Password" className="passwordInput-signUp" />
+                <input type="password" placeholder="Confirm Password" className="confirm-password" />
+            </form>
+            <div className="footer-signUp">
+                <button onClick={exitModal} type='submit' className="signUpButton">Sign Up</button>
+            </div>
+        </div>
     )
 }
 
