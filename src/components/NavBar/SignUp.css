@@ -31,7 +31,6 @@
 }
 
 .password-input-box-signUp {
-  max-width: 100%;
   background-color: red;
   display: flex;
   flex-direction: row;
@@ -51,7 +50,7 @@
   border-radius: 50px;
 }
 
-.footer-signUp {
+.signUp-submision {
   padding: 10px;
   transform: translate(0px, 15px);
 }
