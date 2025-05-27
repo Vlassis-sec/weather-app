@@ -49,7 +49,7 @@ const SignUp = ({ setOpenModal }: SignUpProps) => {
                     {...register("password", {
                         required: "Password is required",
                         validate: value => {
-                            if (!value.match(/(?=.*?[?><!@#$%^&*(){}])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[\w>!@#$%^&*(){}]{8,}/g) || value.length < 8) {
+                            if (!/(?=.*?[?><!@#$%^&*(){}])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[\w>!@#$%^&*(){}]{8,}/g.test(value) || value.length < 8) {
                                 return "Please use at least 8 characters \nand Include uppercase, lowercase, number, \nand special character."
                             }
                             return true
