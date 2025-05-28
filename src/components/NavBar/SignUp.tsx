@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import useFocusTrap from '../../hooks/useFocusTrap'
 import './SignUp.css'
 type SignUpProps = {
     setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -11,8 +12,10 @@ type SignUpFields = {
     confirmPassword: string;
 }
 const SignUp = ({ setOpenModal }: SignUpProps) => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm<SignUpFields>()
+    const { register, handleSubmit, formState: { errors }, watch, setFocus } = useForm<SignUpFields>()
     const [submitLoading, setSubmitLoading] = useState(false)
+    const signUpRef = useRef<HTMLFormElement | null>(null)
+    useFocusTrap(signUpRef)
 
 
 
@@ -25,6 +28,10 @@ const SignUp = ({ setOpenModal }: SignUpProps) => {
 
 
     }
+
+    useEffect(() => {
+        setFocus("email")
+    }, [setFocus])
     return (
         <div className="signUpForm">
             <div className="header-signUp">
@@ -32,7 +39,7 @@ const SignUp = ({ setOpenModal }: SignUpProps) => {
                     Sign Up
                 </div>
             </div>
-            <form action="" className="form-signUp" onSubmit={handleSubmit(onSubmit)}>
+            <form action="" className="form-signUp" onSubmit={handleSubmit(onSubmit)} ref={signUpRef}>
                 <input type="text" placeholder="Email" className="emailInput-signUp"
                     {...register("email", {
                         required: "Email is required",
