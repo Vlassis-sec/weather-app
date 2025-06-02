@@ -1,54 +1,115 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Made with React](https://img.shields.io/badge/Made%20with-React-blue.svg)
+![Made with TypeScript](https://img.shields.io/badge/Made%20with-TypeScript-blue.svg)
 
-Currently, two official plugins are available:
+A responsive app created with **React** and **TypeScript** that allows users to search for any city and view current weather data using the **OpenWeatherMap API**. A dropdown with city suggestions appears as the user types, powered by the **LocationIQ API**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app includes animations, modals, a loading component, and error messages that guide the user if a city is not found or an API call fails. It was developed as a hands-on project to practice working with APIs, state management, and building responsive UIs with React and TypeScript.
 
-## Expanding the ESLint configuration
+## Usage
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Start typing a city name on the landing page.
+2. Select from the dropdown suggestions.
+3. View the current weather data for the selected city.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+![Landing animation](/screenshots/landing_page.mp4.gif)
+_Animated landing sequence with cloud and rain effects._
+
+![City search dropdown](/screenshots/dropDown.png)
+_Dropdown with city suggestions_
+
+![Weather data](/screenshots/weatherCard.png)
+_Real-time weather information from OpenWeatherMap._
+
+If the city is not found or if there is an API error, a clear error message will guide the user.
+
+### Features
+
+- Polished animated landing page for an engaging user experience
+- City autocomplete with smart dropdown suggestions
+- Real-time weather data fetching from OpenWeatherMap API
+- Smooth loading animations and user-friendly error messages
+- Signup and login forms with client-side validation and error handling
+
+### Notes
+
+- The signup form collects input and simulates submission by logging a message to the console.
+- Login form UI is styled but does not perform real authentication.
+
+### Additional screenshots
+
+![Error message](/screenshots/errorMessage.png)
+_Clear feedback when an invalid city is entered._
+
+![Signup form](/screenshots/signUpForm.png)
+_Signup form with input validation._
+
+![Validation feedback](/screenshots/signUpValidation.png)
+_Real-time validation guiding the user during signup._
+
+![Login form](/screenshots/logInForm.png)
+_Login form UI with input fields_
+
+## Installation
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 14 or higher recommended) — please install the latest LTS version for best compatibility.
+- API keys for the following services:
+
+  - **OpenWeatherMap API** — used to fetch the current weather data. Get your key from [https://openweathermap.org/api](https://openweathermap.org/api)
+  - **LocationIQ API** — used for city name autocomplete suggestions. Get your key from [https://locationiq.com/](https://locationiq.com/)
+
+  **Note:**
+
+  > Please review the API providers' usage policies and monitor your API key usage to avoid unexpected issues or costs.
+
+### Environment Variables Setup
+
+Before running the app, create a file named `.env` in the root of the project (same folder as `package.json`).
+
+Inside the `.env` file, create **two environment variables** with the exact names below, replacing the placeholder values with your actual API keys:
+
+```env
+VITE_APP_ID=your_openweathermap_api_key_here
+VITE_AUTOCOMPLETE_API_KEY=your_locationiq_api_key_here
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Steps
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+   ```
+   git clone https://github.com/Vlassis-sec/weather-app.git
+   ```
+
+2. **Navigate into the project directory**
+
 ```
+cd weather-app
+```
+
+3. **Install dependencies**
+
+```
+npm install
+```
+
+4. **Run the development server**
+
+```
+npm run dev
+```
+
+5. Open the app in your browser at http://localhost:5173/
+
+## Credits
+
+This project was fully designed and developed by me, as a hands-on exercise to practice React, TypeScript, and working with external APIs.
+
+### Resources and Inspiration
+
+- The initial idea and card layout were inspired by a weather card component tutorial by **GreatStack** on YouTube.
+- Additional guidance came from several creators on YouTube who helped explain concepts like form handling, regex validation, and working with external APIs.
+- [React documentation](https://react.dev/), [React Hook Form docs](https://react-hook-form.com/), and [CSS-Tricks](https://css-tricks.com/) were valuable resources throughout the process.
