@@ -9,7 +9,7 @@ A responsive app created with **React** and **TypeScript** that allows users to 
 
 The app includes animations, modals, a loading component, and error messages that guide the user if a city is not found or an API call fails. It was developed as a hands-on project to practice working with APIs, state management, and building responsive UIs with React and TypeScript.
 
-## What I Learned
+### What I Learned
 
 - **State-based UI rendering** using React for dynamic user feedback
 - **Error handling with fallback UI** to guide users during API failures or invalid city names
@@ -26,43 +26,43 @@ The app includes animations, modals, a loading component, and error messages tha
 
 ### Screenshots
 
-![Landing animation](/screenshots/landing_page.mp4.gif)
-_Animated landing sequence with cloud and rain effects._
+    ![Landing animation](/screenshots/landing_page.mp4.gif)
+    _Animated landing sequence with cloud and rain effects._
 
-![City search dropdown](/screenshots/dropDown.png)
-_Dropdown with city suggestions_
+    ![City search dropdown](/screenshots/dropDown.png)
+    _Dropdown with city suggestions_
 
-![Weather data](/screenshots/weatherCard.png)
-_Real-time weather information from OpenWeatherMap._
+    ![Weather data](/screenshots/weatherCard.png)
+    _Real-time weather information from OpenWeatherMap._
 
-If the city is not found or if there is an API error, a clear error message will guide the user.
+    If the city is not found or if there is an API error, a clear error message will guide the user.
 
 ### Features
 
-- Polished animated landing page for an engaging user experience
-- City autocomplete with smart dropdown suggestions
-- Real-time weather data fetching from OpenWeatherMap API
-- Smooth loading animations and user-friendly error messages
-- Signup and login forms with client-side validation and error handling
+    - Polished animated landing page for an engaging user experience
+    - City autocomplete with smart dropdown suggestions
+    - Real-time weather data fetching from OpenWeatherMap API
+    - Smooth loading animations and user-friendly error messages
+    - Signup and login forms with client-side validation and error handling
 
 ### Notes
 
-- The signup form collects input and simulates submission by logging a message to the console.
-- Login form UI is styled but does not perform real authentication.
+    - The signup form collects input and simulates submission by logging a message to the console.
+    - Login form UI is styled but does not perform real authentication.
 
 ### Additional screenshots
 
-![Error message](/screenshots/errorMessage.png)
-_Clear feedback when an invalid city is entered._
+    ![Error message](/screenshots/errorMessage.png)
+    _Clear feedback when an invalid city is entered._
 
-![Signup form](/screenshots/signUpForm.png)
-_Signup form with input validation._
+    ![Signup form](/screenshots/signUpForm.png)
+    _Signup form with input validation._
 
-![Validation feedback](/screenshots/signUpValidation.png)
-_Real-time validation guiding the user during signup._
+    ![Validation feedback](/screenshots/signUpValidation.png)
+    _Real-time validation guiding the user during signup._
 
-![Login form](/screenshots/logInForm.png)
-_Login form UI with input fields_
+    ![Login form](/screenshots/logInForm.png)
+    _Login form UI with input fields_
 
 ## Installation
 
@@ -80,43 +80,43 @@ _Login form UI with input fields_
 
 ### Environment Variables Setup
 
-Before running the app, create a file named `.env` in the root of the project (same folder as `package.json`).
+    Before running the app, create a file named `.env` in the root of the project (same folder as `package.json`).
 
-Inside the `.env` file, create **two environment variables** with the exact names below, replacing the placeholder values with your actual API keys:
+    Inside the `.env` file, create **two environment variables** with the exact names below, replacing the placeholder values with your actual API keys:
 
-```env
-VITE_APP_ID=your_openweathermap_api_key_here
-VITE_AUTOCOMPLETE_API_KEY=your_locationiq_api_key_here
-```
-
-### Steps
-
-1. **Clone the repository**
-
-
-    ```
-    git clone https://github.com/Vlassis-sec/weather-app.git
+    ```env
+    VITE_APP_ID=your_openweathermap_api_key_here
+    VITE_AUTOCOMPLETE_API_KEY=your_locationiq_api_key_here
     ```
 
-2. **Navigate into the project directory**
+    ### Steps
 
-```
-cd weather-app
-```
+      1. **Clone the repository**
 
-3. **Install dependencies**
+      ```
+      git clone https://github.com/Vlassis-sec/weather-app.git
+      ```
 
-```
-npm install
-```
+      2. **Navigate into the project directory**
 
-4. **Run the development server**
+      ```
+      cd weather-app
+      ```
 
-```
-npm run dev
-```
+      3. **Install dependencies**
 
-5. Open the app in your browser at http://localhost:5173/
+      ```
+      npm install
+      ```
+
+      4. **Run the development server**
+
+      ```
+      npm run dev
+    ```
+
+    5. Open the app in your browser at http://localhost:5173/
+    (The exact address and port will be shown in your terminal after running npm run dev.)
 
 ## Credits
 
@@ -124,6 +124,6 @@ This project was fully designed and developed by me, as a hands-on exercise to p
 
 ### Resources and Inspiration
 
-- The initial idea and card layout were inspired by a weather card component tutorial by **GreatStack** on YouTube.
-- Additional guidance came from several creators on YouTube who helped explain concepts like form handling, regex validation, and working with external APIs.
-- [React documentation](https://react.dev/), [React Hook Form docs](https://react-hook-form.com/), and [CSS-Tricks](https://css-tricks.com/) were valuable resources throughout the process.
+    - The initial idea and card layout were inspired by a weather card component tutorial by **GreatStack** on YouTube.
+    - Additional guidance came from several creators on YouTube who helped explain concepts like form handling, regex validation, and working with external APIs.
+    - [React documentation](https://react.dev/), [React Hook Form docs](https://react-hook-form.com/), and [CSS-Tricks](https://css-tricks.com/) were valuable resources throughout the process.
