@@ -3,15 +3,28 @@
 ![Made with React](https://img.shields.io/badge/Made%20with-React-blue.svg)
 ![Made with TypeScript](https://img.shields.io/badge/Made%20with-TypeScript-blue.svg)
 
+## Description
+
 A responsive app created with **React** and **TypeScript** that allows users to search for any city and view current weather data using the **OpenWeatherMap API**. A dropdown with city suggestions appears as the user types, powered by the **LocationIQ API**.
 
 The app includes animations, modals, a loading component, and error messages that guide the user if a city is not found or an API call fails. It was developed as a hands-on project to practice working with APIs, state management, and building responsive UIs with React and TypeScript.
+
+## What I Learned
+
+- **State-based UI rendering** using React for dynamic user feedback
+- **Error handling with fallback UI** to guide users during API failures or invalid city names
+- **Modals built with React Portals**, including keyboard `Escape` and click-outside functionality to close
+- **Focus trapping** and accessible form navigation with `Tab` support
+- **Form validation** using `react-hook-form` and regular expressions for reliable input handling
+- Emphasis on **clean, reusable components** and maintaining clear separation of concerns
 
 ## Usage
 
 1. Start typing a city name on the landing page.
 2. Select from the dropdown suggestions.
 3. View the current weather data for the selected city.
+
+### Screenshots
 
 ![Landing animation](/screenshots/landing_page.mp4.gif)
 _Animated landing sequence with cloud and rain effects._
@@ -80,9 +93,10 @@ VITE_AUTOCOMPLETE_API_KEY=your_locationiq_api_key_here
 
 1. **Clone the repository**
 
-   ```
-   git clone https://github.com/Vlassis-sec/weather-app.git
-   ```
+
+    ```
+    git clone https://github.com/Vlassis-sec/weather-app.git
+    ```
 
 2. **Navigate into the project directory**
 
