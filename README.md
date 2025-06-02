@@ -36,16 +36,16 @@ If the city is not found or if there is an API error, a clear error message will
 
 ### Features
 
-    - Polished animated landing page for an engaging user experience
-    - City autocomplete with smart dropdown suggestions
-    - Real-time weather data fetching from OpenWeatherMap API
-    - Smooth loading animations and user-friendly error messages
-    - Signup and login forms with client-side validation and error handling
+- Polished animated landing page for an engaging user experience
+- City autocomplete with smart dropdown suggestions
+- Real-time weather data fetching from OpenWeatherMap API
+- Smooth loading animations and user-friendly error messages
+- Signup and login forms with client-side validation and error handling
 
 ### Notes
 
-    - The signup form collects input and simulates submission by logging a message to the console.
-    - Login form UI is styled but does not perform real authentication.
+- The signup form collects input and simulates submission by logging a message to the console.
+- Login form UI is styled but does not perform real authentication.
 
 ### Additional screenshots
 
