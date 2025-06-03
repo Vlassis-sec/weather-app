@@ -62,7 +62,7 @@ _Login form UI with input fields_
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 14 or higher recommended) — please install the latest LTS version for best compatibility.
+- [Node.js](https://nodejs.org/) please install the latest LTS version for best compatibility.
 - API keys for the following services:
 
   - **OpenWeatherMap API** — used to fetch the current weather data. Get your key from [https://openweathermap.org/api](https://openweathermap.org/api)
