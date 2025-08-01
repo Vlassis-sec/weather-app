@@ -20,3 +20,20 @@ export const allIcons = {
   "13d": snow_icon,
   "13n": snow_icon,
 };
+
+export const allIconsDescription = {
+  "01d": "Clear sky",
+  "01n": "Clear Sky",
+  "02d": "Few Clouds",
+  "02n": "Few Clouds",
+  "03d": "Scattered Clouds",
+  "03n": "Scattered Clouds",
+  "04d": "Broken Clouds",
+  "04n": "Broken Clouds",
+  "09d": "Shower Rain",
+  "09n": "Shower Rain",
+  "10d": "Rain",
+  "10n": "Rain",
+  "13d": "Snow",
+  "13n": "Snow",
+};

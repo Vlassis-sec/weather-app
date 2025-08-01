@@ -1,14 +1,12 @@
 import './InitialSearchScreen.css'
 import search_icon from '../../assets/search.png'
 import { AutoCompleteResponse } from '../../api/AutoComplete'
-import CircleLoading from '../CircleLoading/CircleLoading'
 
 
 type InitalSearchScreen = {
     city: string
     setCity: React.Dispatch<React.SetStateAction<string>>
     citiesSuggestions: AutoCompleteResponse | null
-    inputCompleted: boolean
     setInputCompleted: React.Dispatch<React.SetStateAction<boolean>>
     showAutoComplete: boolean
 }
@@ -51,14 +49,14 @@ const InitialSearchScreen = ({ city, setCity, citiesSuggestions, setInputComplet
                         <input type="text" placeholder='Search' value={city} onKeyDown={handleSearch} onChange={handleChange} />
                         {
                             showAutoComplete ?
-                                <div className='autocomplete-container-initial'>
+                                <div className='autocomplete-container-initial' data-testid="autocomplete-container">
                                     {citiesSuggestions ?
                                         citiesSuggestions.map((city) =>
-                                            <div className='autocomplete-city-initial' onClick={() => onClickHandle(city.address.name)}>
+                                            <div className='autocomplete-city-initial' onClick={() => onClickHandle(city.address.name)} data-testid="autocomplete-city-suggestion-initial">
                                                 {city.address.name} {city.address.state}
                                             </div>)
                                         :
-                                        <div className='wait-cities-to-load'>
+                                        <div className='wait-cities-to-load' data-testid="wait-cities-to-load">
 
                                         </div>}
 
@@ -69,7 +67,7 @@ const InitialSearchScreen = ({ city, setCity, citiesSuggestions, setInputComplet
 
                     <button onClick={() => {
                         setInputCompleted(true)
-                    }}>
+                    }} aria-label='search-button'>
                         <img src={search_icon} alt="" className='weather-icon' />
                     </button>
                 </div>

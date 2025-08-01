@@ -9,8 +9,8 @@ type ErrorProps = {
 const ErrorComponent = ({ status, message }: ErrorProps) => {
 
     return (
-        <div className="weather-container">
-            <img src={drizzle_icon} alt="" />
+        <div className="weather-container" role='alert'>
+            <img src={drizzle_icon} alt="Error icon: Drizzle weather icon" />
             <div className="error-message">
                 <span>Oops! </span>
                 <span>Error: {status} </span>

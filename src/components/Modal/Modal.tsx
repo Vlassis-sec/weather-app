@@ -28,8 +28,8 @@ const Modal = ({ setOpenModal, children }: ModalProps) => {
 
     return (
         createPortal(
-            <div className="modal-background" onClick={() => setOpenModal(false)}>
-                <div className="modal-container" onClick={(event) => { event.stopPropagation() }}>
+            <div className="modal-background" role='presentation' onClick={() => setOpenModal(false)}>
+                <div className="modal-container" role='dialog' aria-modal='true' onClick={(event) => { event.stopPropagation() }}>
                     {children}
                 </div>
             </div>,

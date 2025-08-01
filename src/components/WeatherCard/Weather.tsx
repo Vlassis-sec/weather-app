@@ -1,28 +1,26 @@
 
 import './Weather.css'
-// import '../DummyComp/AutoComplete.css'
 import { Weather } from '../../api/Weather'
 import search_icon from "../../assets/search.png"
 import wind_icon from '../../assets/wind.png'
 import humidity_icon from '../../assets/humidity.png'
 import getIcon from '../../utilities/getIcon';
+import getIconDescription from '../../utilities/getIconDescription'
 import { AutoCompleteResponse } from '../../api/AutoComplete'
 
 type WeatherProps = {
     city: string;
     setCity: React.Dispatch<React.SetStateAction<string>>
-    weatherData: Weather
+    weatherData: Weather,
     citiesSuggestions: AutoCompleteResponse | null
-    inputCompleted: boolean
     setInputCompleted: React.Dispatch<React.SetStateAction<boolean>>
     showAutoComplete: boolean
-    // setCitySuggestions: React.Dispatch<React.SetStateAction<AutoCompleteResponse | null>>
 }
 
-const WeatherCard = ({ city, setCity, weatherData, citiesSuggestions, inputCompleted, setInputCompleted, showAutoComplete }: WeatherProps) => {
+const WeatherCard = ({ city, setCity, weatherData, citiesSuggestions, setInputCompleted, showAutoComplete }: WeatherProps) => {
 
-    // const myCities = ["Athens", "London", "New York", "Thessaloniki", "Texas"]
-    const weatherIcon = getIcon(weatherData?.weather[0].icon)
+    const weatherIcon = getIcon(weatherData.weather[0].icon)
+    const weatherIconDescription = getIconDescription(weatherData.weather[0].icon)
 
     const handleChange = (e) => {
         setCity(e.target.value)
@@ -48,11 +46,13 @@ const WeatherCard = ({ city, setCity, weatherData, citiesSuggestions, inputCompl
                         <input type="text" placeholder="Search" value={city} onKeyDown={handleSearch} onChange={handleChange}></input>
                         {
                             showAutoComplete ?
-                                <div className='autocomplete-container'>
+                                <div className='autocomplete-container' data-testid="autocomplete-container">
                                     {citiesSuggestions ? citiesSuggestions.map((city) =>
-                                        <div className='autocomplete-city' onClick={() => onClickHandle(city.address.name)}>
+                                        <div className='autocomplete-city' onClick={() => onClickHandle(city.address.name)} data-testid="autocomplete-city-suggestion">
                                             {city.address.name} {city.address.state}
-                                        </div>) : null}
+                                        </div>) : <div className='wait-cities-to-load' data-testid="wait-cities-to-load">
+
+                                    </div>}
                                 </div>
                                 :
                                 null
@@ -61,26 +61,26 @@ const WeatherCard = ({ city, setCity, weatherData, citiesSuggestions, inputCompl
 
                     <button onClick={() => {
                         setInputCompleted(true)
-                    }}>
+                    }} aria-label='search-button'>
                         <img src={search_icon} alt="" />
                     </button>
                 </div>
 
-                <img src={weatherIcon} alt="" className="weather-icon" />
-                <p className="temperature">{weatherData ? Math.floor(weatherData.main.temp) : undefined}°C</p>
-                <p className="location">{weatherData ? weatherData.name : undefined}</p>
+                <img src={weatherIcon} alt={weatherIconDescription} className="weather-icon" />
+                <p className="temperature">{Math.floor(weatherData.main.temp)}°C</p>
+                <p className="location">{weatherData.name}</p>
                 <div className="weather-data">
                     <div className="col">
-                        <img src={humidity_icon} alt="" />
+                        <img src={humidity_icon} alt="humidity-icon" />
                         <div>
-                            <p>{weatherData ? weatherData.main.humidity : undefined} %</p>
+                            <p>{weatherData.main.humidity} %</p>
                             <span>Humidity</span>
                         </div>
                     </div>
                     <div className="col">
-                        <img src={wind_icon} alt="" />
+                        <img src={wind_icon} alt="wind-icon" />
                         <div>
-                            <p>{weatherData ? weatherData.wind.speed : undefined} Km/h</p>
+                            <p>{weatherData.wind.speed} Km/h</p>
                             <span>Wind Speed</span>
                         </div>
                     </div>

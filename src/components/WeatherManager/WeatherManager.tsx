@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 import { useState, useEffect } from "react";
 import { Weather } from "../../api/Weather"
+import { getWeather } from "../../api/getWeather"
 import InitialSearchScreen from "../InitialSearchScreen/InitialSearchScreen";
 import ErrorComponent from "../Error/ErrorComponet";
 import CircleLoading from "../CircleLoading/CircleLoading";
 import { ApiError } from "../../utilities/ApiError";
-import { getWeather } from "../../api/getWeather";
 import WeatherCard from "../WeatherCard/Weather";
 import { AutoCompleteResponse } from "../../api/AutoComplete";
 import { getAutocompleteSuggestions } from "../../api/getAutocompleteSuggestions";
@@ -72,13 +72,13 @@ const WeatherManager = () => {
 
     if (loading) return <CircleLoading />
     if (error != null) return <ErrorComponent status={error.status} message={error.message} />
-    if (!weatherData) return <InitialSearchScreen setCity={setCity} city={city} citiesSuggestions={citySuggestions} setInputCompleted={setInputCompleted} inputCompleted={inputCompleted} showAutoComplete={showAutoComplete} />
+    if (!weatherData) return <InitialSearchScreen setCity={setCity} city={city} citiesSuggestions={citySuggestions} setInputCompleted={setInputCompleted} showAutoComplete={showAutoComplete} />
 
 
 
     return (
         <>
-            <WeatherCard setCity={setCity} city={city} weatherData={weatherData} citiesSuggestions={citySuggestions} setInputCompleted={setInputCompleted} inputCompleted={inputCompleted} showAutoComplete={showAutoComplete} />
+            <WeatherCard setCity={setCity} city={city} weatherData={weatherData} citiesSuggestions={citySuggestions} setInputCompleted={setInputCompleted} showAutoComplete={showAutoComplete} />
         </>
     )
 

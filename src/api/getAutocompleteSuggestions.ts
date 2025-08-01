@@ -3,6 +3,7 @@ import { AutoCompleteResponse } from "./AutoComplete";
 
 const API_KEY = import.meta.env.VITE_AUTOCOMPLETE_API_KEY;
 const URL = `https://api.locationiq.com/v1/autocomplete?key=${API_KEY}&limit=5&q=`;
+
 export const getAutocompleteSuggestions = async (
   city: string
 ): Promise<AutoCompleteResponse> => {

@@ -3,8 +3,9 @@ import WeatherManager from "./components/WeatherManager/WeatherManager";
 import NavBar from "./components/NavBar/NavBar";
 import { FormType } from "./components/Modal/ModalTypeUnion";
 import Modal from "./components/Modal/Modal";
-import LogIn from "./components/NavBar/LogIn";
-import SignUp from "./components/NavBar/SignUp";
+import LogIn from "./components/Forms/LogIn";
+import SignUp from "./components/Forms/SignUp";
+
 
 
 
