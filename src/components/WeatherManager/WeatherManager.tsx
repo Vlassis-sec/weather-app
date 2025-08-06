@@ -9,7 +9,7 @@ import { ApiError } from "../../utilities/ApiError";
 import WeatherCard from "../WeatherCard/Weather";
 import { AutoCompleteResponse } from "../../api/AutoComplete";
 
-type WeatherManagerProps = {
+export type WeatherManagerProps = {
     city: string
     setCity: React.Dispatch<React.SetStateAction<string>>
     weatherData: Weather | null

@@ -14,7 +14,7 @@ const ErrorComponent = ({ status, message }: ErrorProps) => {
             <div className="error-message">
                 <span>Oops! </span>
                 <span>Error: {status} </span>
-                <div> {message}</div>
+                <div data-testid='error'> {message}</div>
                 <div className='instruction'> Please refresh.</div>
             </div>
         </div>

@@ -21,7 +21,9 @@ export const handlers = [
     }
 
     if (!checkUnits(units)) {
-      return new HttpResponse("Wrong units, should be metric", { status: 400 });
+      return new HttpResponse("Wrong units, should be metric", {
+        status: 400,
+      });
     }
 
     if (citiesList.includes(city!.toLowerCase())) {
@@ -39,8 +41,7 @@ export const handlers = [
     } else {
       return HttpResponse.json(
         {
-          name: "Api Error",
-          status: 404,
+          cod: 404,
           message: "City not found",
         },
         { status: 404 }

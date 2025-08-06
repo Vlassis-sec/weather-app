@@ -1,20 +1,7 @@
 import testSearchBarOf from "../../../shared-tests/testSearchBar";
 import WeatherCard from "../Weather";
 import { describe, it, expect } from "vitest";
-import { render, screen } from '@testing-library/react'
-import { Weather } from "../../../api/Weather";
-
-const mockWeatherData: Weather = {
-    main: {
-        humidity: 42,
-        temp: 33,
-    },
-    name: "Athens",
-    weather: [{ icon: "01d" }],
-    wind: {
-        speed: 2.24,
-    }
-}
+import { render, screen, within } from '@testing-library/react'
 
 const renderWeatherCard = () => {
 
@@ -25,12 +12,21 @@ const renderWeatherCard = () => {
         setInputCompleted: () => { },
         showAutoComplete: false,
         citiesSuggestions: null,
-        weatherData: mockWeatherData
+        weatherData: {
+            main: {
+                humidity: 42,
+                temp: 33,
+            },
+            name: "Athens",
+            weather: [{ icon: "01d" }],
+            wind: {
+                speed: 2.24,
+            }
+        }
     }
 
     render(<WeatherCard {...defaultProps} />)
 }
-
 
 describe("WeatherCard component", () => {
 
@@ -41,40 +37,39 @@ describe("WeatherCard component", () => {
     })
 
     describe("Test that elements are rendered properly", () => {
+
         it('should render the weather icon', () => {
             renderWeatherCard()
-            const weather_icon = screen.getByAltText("Clear sky")
-            expect(weather_icon).toBeInTheDocument()
+            const container = screen.getByTestId('weather-screen')
+            expect(within(container).getByAltText("Clear sky")).toBeInTheDocument()
         })
 
         it('should render the temperature', () => {
             renderWeatherCard()
-            const temperature = screen.getByText("33°C")
-            expect(temperature).toBeInTheDocument()
+            const container = screen.getByTestId('weather-screen')
+            expect(within(container).getByText("33°C")).toBeInTheDocument()
         })
 
         it('should render the city name', () => {
             renderWeatherCard()
-            const city = screen.getByText("Athens")
-            expect(city).toBeInTheDocument()
+            const container = screen.getByTestId('weather-screen')
+            expect(within(container).getByText("Athens")).toBeInTheDocument()
         })
 
         it('should render the humidity icon, value and label', () => {
             renderWeatherCard()
-            const humidity_icon = screen.getByAltText("humidity-icon")
-            const humidityValue = screen.getByText("42 %")
-            expect(humidity_icon).toBeInTheDocument()
-            expect(humidityValue).toBeInTheDocument()
-            expect(screen.getByText("Humidity")).toBeInTheDocument()
+            const container = screen.getByTestId('weather-screen')
+            expect(within(container).getByAltText("humidity-icon")).toBeInTheDocument()
+            expect(within(container).getByText("42 %")).toBeInTheDocument()
+            expect(within(container).getByText("Humidity")).toBeInTheDocument()
         })
 
         it('should render the wind icon, value and label', () => {
             renderWeatherCard()
-            const wind_icon = screen.getByAltText("wind-icon")
-            const windValue = screen.getByText("2.24 Km/h")
-            expect(wind_icon).toBeInTheDocument()
-            expect(windValue).toBeInTheDocument()
-            expect(screen.getByText("Wind Speed")).toBeInTheDocument()
+            const container = screen.getByTestId('weather-screen')
+            expect(within(container).getByAltText("wind-icon")).toBeInTheDocument()
+            expect(within(container).getByText("2.24 Km/h")).toBeInTheDocument()
+            expect(within(container).getByText("Wind Speed")).toBeInTheDocument()
         })
 
     })

@@ -33,8 +33,8 @@ const InitialSearchScreen = ({ city, setCity, citiesSuggestions, setInputComplet
 
     return (
         <>
-            <div className="loading">
-                <div className="rain-container">
+            <div className="loading" data-testid="initial-screen">
+                <div className="rain-container" data-testid='rain-container'>
                     <div className='rain-drop rain-drop-animation rain-drop-animation-slowly'></div>
                     <div className='rain-drop rain-drop-animation rain-drop-animation-slow'></div>
                     <div className='rain-drop rain-drop-animation rain-drop-animation-fast'></div>
@@ -43,7 +43,7 @@ const InitialSearchScreen = ({ city, setCity, citiesSuggestions, setInputComplet
                     <div className='rain-drop rain-drop-animation rain-drop-animation-slow'></div>
                     <div className='rain-drop rain-drop-animation rain-drop-animation-fast'></div>
                 </div>
-                <img src="../src/assets/cloud.png" alt="" className='icon-loading icon-loading-animation' />
+                <img src="../src/assets/cloud.png" alt="cloud icon" className='icon-loading icon-loading-animation' />
                 <div className="search-bar-initial search-bar-animation">
                     <div className="input-wrapper-initial">
                         <input type="text" placeholder='Search' value={city} onKeyDown={handleSearch} onChange={handleChange} />

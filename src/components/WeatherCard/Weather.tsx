@@ -40,7 +40,7 @@ const WeatherCard = ({ city, setCity, weatherData, citiesSuggestions, setInputCo
 
     return (
         <>
-            <div className="weather">
+            <div className="weather" data-testid="weather-screen">
                 <div className="search-bar">
                     <div className='input-wrapper'>
                         <input type="text" placeholder="Search" value={city} onKeyDown={handleSearch} onChange={handleChange}></input>
@@ -68,7 +68,7 @@ const WeatherCard = ({ city, setCity, weatherData, citiesSuggestions, setInputCo
 
                 <img src={weatherIcon} alt={weatherIconDescription} className="weather-icon" />
                 <p className="temperature">{Math.floor(weatherData.main.temp)}°C</p>
-                <p className="location">{weatherData.name}</p>
+                <p className="location" data-testid='location'>{weatherData.name}</p>
                 <div className="weather-data">
                     <div className="col">
                         <img src={humidity_icon} alt="humidity-icon" />
