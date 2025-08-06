@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import WeatherManager from "./components/WeatherManager/WeatherManager";
 import NavBar from "./components/NavBar/NavBar";
 import { FormType } from "./components/Modal/ModalTypeUnion";
 import Modal from "./components/Modal/Modal";
-import LogIn from "./components/Forms/LogIn";
-import SignUp from "./components/Forms/SignUp";
 import useSearch from "./hooks/useSearch";
 import useSuggest from "./hooks/useSuggest";
+import { getFormContent } from "./utilities/getFormContent";
 
 
 
@@ -18,17 +17,7 @@ const App = () => {
   const [inputCompleted, setInputCompleted] = useState(false)
   const [city, setCity] = useState("")
 
-
-  let formContent: React.ReactElement | null = null;
-
-  if (formType === null) {
-    formContent = null;
-  } else if (formType === 'log-in') {
-    formContent = <LogIn setOpenModal={setOpenModal} />
-  } else if (formType === 'sign-up') {
-    formContent = <SignUp setOpenModal={setOpenModal} />
-  }
-
+  const formContent = getFormContent(formType, setOpenModal)
   const { weatherData, error, loading } = useSearch(city, inputCompleted)
   const { citySuggestions, setCitySuggestions } = useSuggest(city, inputCompleted)
 
