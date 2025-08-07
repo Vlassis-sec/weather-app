@@ -5,7 +5,7 @@ import { FormType } from "./components/Modal/ModalTypeUnion";
 import Modal from "./components/Modal/Modal";
 import useSearch from "./hooks/useSearch";
 import useSuggest from "./hooks/useSuggest";
-import { getFormContent } from "./utilities/getFormContent";
+import { getFormContent } from "./utilities/getFormContent"
 
 
 
@@ -50,7 +50,3 @@ const App = () => {
 }
 
 export default App
-
-
-
-
